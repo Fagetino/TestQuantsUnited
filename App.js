@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { StyleSheet, Text, View, Switch } from 'react-native';
 import { Icon } from 'react-native-elements';
 
@@ -15,22 +16,34 @@ const App = () => {
   const [isEnabledSleep, setIsEnabledSleep] = useState(false);
   const toggleSwitchSleep = () => setIsEnabledSleep(previousState => !previousState)
   
+  const shadowStyle={
+    shadowColor: "#2b2b2b",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 16.00,
+
+    elevation: 24,
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.header_container}>
         <View style={styles.title_container}>
           <Text style={styles.title}>Settings</Text>
-          <Icon name='more-horizontal' type='feather' color='#dbdbdb' size={40} /> 
+          <Icon name='more-horizontal' type='feather' color='#dbdbdb' size={35} /> 
         </View>
         <View style={styles.title_container}>
           <Text style={styles.text}>Please select your risk profile</Text>
-          <Icon name='fingerprint' type='material' color='#dbdbdb' size={40}/>
+          <Icon name='fingerprint' type='material' color='#dbdbdb' size={35}/>
         </View>
       </View>
+      
       <View style={styles.main_container}>
         <View style={styles.risk_container}>
-          <View style={styles.risk_item}>
+          <View style={[styles.risk_item, shadowStyle]}>
             <View>
               <View style={styles.risk_title_container}>
                 <Text style={styles.risk_title}>High</Text>
@@ -53,7 +66,7 @@ const App = () => {
               style={styles.switch}
             />
           </View>
-          <View style={styles.risk_item}>
+          <View style={[styles.risk_item, shadowStyle]}>
             <View>
               <View style={styles.risk_title_container}>
                 <Text style={styles.risk_title}>Medium</Text>
@@ -76,7 +89,7 @@ const App = () => {
               style={styles.switch}
             />
           </View>
-          <View style={styles.risk_item}>
+          <View style={[styles.risk_item, shadowStyle]}>
             <View>
               <View style={styles.risk_title_container}>
                 <Text style={styles.risk_title}>Low</Text>
@@ -100,7 +113,7 @@ const App = () => {
             />
           </View>
         </View>
-        <View style={styles.risk_item}>
+        <View style={[styles.risk_item, shadowStyle]}>
           <View>
             <Text style={styles.risk_title}>Earn while sleeping</Text>
             <Text style={styles.content_text}>Let Warren trade at night (23:00-7:00)</Text>
@@ -114,6 +127,31 @@ const App = () => {
             />
         </View>
       </View>
+
+      <View style={styles.menu}>
+        <View style={[styles.main_menu_container, shadowStyle]}>
+            <TouchableOpacity style={styles.secondary_button}>
+              <Icon name='bar-chart-2' type='feather' color='#dbdbdb' size={30}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.home_button}>
+              <Icon name='home' type='material-community' color='#dbdbdb' size={30}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.secondary_button}>
+              <Icon name='currency-btc' type='material-community' color='#dbdbdb' size={30}/>
+            </TouchableOpacity>
+          </View>
+          <View style={[styles.secondary_menu_container, shadowStyle]}>
+            <TouchableOpacity style={styles.secondary_button}>
+              <Icon name='notifications-none' type='material-icons' color='#dbdbdb' size={30}/>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.secondary_button}>
+              <Icon name='settings' type='material-icons' color='#dbdbdb' size={30}/>
+            </TouchableOpacity>
+          </View>
+      </View>
+      
     </View>
   );
 }
@@ -125,8 +163,8 @@ const styles = StyleSheet.create({
   },
   header_container: {
     marginTop: 20,
-    width: '80%',
-    alignSelf: 'center'
+    marginLeft: '10%',
+    marginRight: '5%'
   },
   title_container: {
     flexDirection: 'row',
@@ -152,13 +190,28 @@ const styles = StyleSheet.create({
     
   },
   risk_item: {
+    backgroundColor: '#414b5c',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 20,
+    borderRadius: 10,
+    marginTop: 10,
+    padding: 15
     
   },
   switch: {
-    alignSelf: 'center'
+    borderWidth: 2,
+    borderColor: "#495466",
+    borderRadius: 15,
+    alignSelf: 'center',
+    shadowColor: "#666d7a",
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.00,
+
+    elevation: 24,
   },
   risk_title_container: {
     flexDirection: 'row',
@@ -190,6 +243,38 @@ const styles = StyleSheet.create({
     color: '#ff0000',
     fontSize: 8,
     marginLeft: 10
+  },
+  menu: {
+    marginTop: 'auto'
+  },
+  main_menu_container :{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  secondary_menu_container :{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 10,
+    marginBottom: 10,
+    marginRight: 10,
+  },
+  home_button: {
+    borderRadius: 100,
+    justifyContent: 'center',
+    width: 80,
+    height: 80,
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: '#39414f'
+  },
+  secondary_button: {
+    borderRadius: 100,
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+    backgroundColor: '#39414f',
   }
 });
 
