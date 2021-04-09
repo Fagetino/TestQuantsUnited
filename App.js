@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderRadius: 10,
     marginTop: 10,
-    padding: 15
+    padding: 18
     
   },
   switch: {
@@ -251,20 +251,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
+    marginBottom: 40,
   },
   secondary_menu_container :{
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: 10,
-    marginBottom: 10,
-    marginRight: 10,
+    position: 'absolute',
+    left: 10,
+    right: 10,
+    bottom: 10
+
   },
   home_button: {
     borderRadius: 100,
     justifyContent: 'center',
     width: 80,
     height: 80,
-    marginTop: 10,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: '#39414f'
@@ -272,8 +275,8 @@ const styles = StyleSheet.create({
   secondary_button: {
     borderRadius: 100,
     justifyContent: 'center',
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     backgroundColor: '#39414f',
   }
 });
